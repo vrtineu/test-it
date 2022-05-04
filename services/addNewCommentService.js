@@ -1,6 +1,11 @@
 import axios from "axios";
+import { AppError } from "../errors/AppError.js";
 
 export async function addNewCommentService(id, comment) {
+  if (!id || !comment) {
+    throw new Error("Missing parameters");
+  }
+
   const options = {
     method: 'POST',
     url: `${process.env.API_URL}/add_comentario`,
@@ -15,6 +20,6 @@ export async function addNewCommentService(id, comment) {
 
     return { success: true };
   } catch (error) {
-    return { error };
+    throw new AppError(error);
   }
 }

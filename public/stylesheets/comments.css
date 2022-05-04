@@ -1,0 +1,22 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: linear-gradient(to right, #be83d8, #db3505);
+}
+
+.form-comments {
+  width: 30%;
+  height: auto;
+  margin-top: 5%;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.form-comments .btn-comments {
+  background-color: #ccc;
+}
+
+#comment {
+  width: 30%;
+  height: auto;
+}

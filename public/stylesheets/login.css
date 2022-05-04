@@ -21,15 +21,3 @@ body {
 .form-login .btn-login {
   background-color: #ccc;
 }
-
-.form-comments {
-  width: 30%;
-  height: auto;
-  margin-top: 5%;
-  padding: 20px;
-  border: 1px solid #ccc;
-}
-
-.form-comments .btn-comments {
-  background-color: #ccc;
-}

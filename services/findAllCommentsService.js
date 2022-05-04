@@ -1,4 +1,5 @@
 import axios from "axios";
+import { AppError } from "../errors/AppError.js";
 
 export async function findAllCommentsService() {
   const options = {
@@ -11,6 +12,6 @@ export async function findAllCommentsService() {
 
     return response.data;
   } catch (error) {
-    return { error };
+    throw new AppError(error);
   }
 }
