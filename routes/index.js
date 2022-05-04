@@ -1,9 +1,11 @@
-import Router from "express";
+import { Router } from "express";
 
-const router = new Router();
+import { commentsRoutes } from "./comments.routes.js";
+import { userRoutes } from "./user.routes.js";
 
-router.get("/", function (req, res, next) {
-	res.render("index", { title: "Express" });
-});
+const router = Router();
+
+router.use('/', userRoutes);
+router.use('/comments', commentsRoutes);
 
 export default router;

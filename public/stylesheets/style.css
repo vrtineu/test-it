@@ -1,8 +1,35 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: linear-gradient(to right, #be83d8, #db3505);
 }
 
-a {
-  color: #00B7FF;
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.form-login {
+  width: 300px;
+  height: auto;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.form-login .btn-login {
+  background-color: #ccc;
+}
+
+.form-comments {
+  width: 30%;
+  height: auto;
+  margin-top: 5%;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.form-comments .btn-comments {
+  background-color: #ccc;
 }

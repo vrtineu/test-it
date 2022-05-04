@@ -1,5 +1,8 @@
 import app from "./app.js";
+import dotenv from "dotenv";
 
-const PORT = process.env.port || 3000;
+dotenv.config();
+
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
