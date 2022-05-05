@@ -12,39 +12,48 @@
 </head>
 
 <body>
-  <h1>Comments</h1>
-  <div class="form-comments">
-    <form id="comments">
-      <div class="mb-3">
-        <label for="comment" class="form-label">Add a new comment</label>
-        <textarea class="form-control" id="comment" rows="3"></textarea>
-      </div>
-      <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-comments">Submit</button>
-      </div>
-    </form>
-  </div>
-  <div class="comments">
-    <% for (let comment of comments) { %>
-      <div id="comment">
-        <div class="card">
-          <p>
-            <%= comment.nome %>
-          </p>
-          <p>
-            <%= comment.comentario %>
-          </p>
-          <p>
-            <span>
-              <%= comment.data_entrada %>
-            </span>
-            <span>
-              <%= comment.horario %>
-            </span>
-          </p>
+  <h1 class="title">Comments</h1>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="form-comments">
+          <form id="comments">
+            <div class="mb-3">
+              <label for="comment" class="form-label">Add a new comment</label>
+              <textarea class="form-control" id="comment" rows="3"></textarea>
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-comments">Submit</button>
+            </div>
+          </form>
         </div>
       </div>
-      <% } %>
+
+      <div class="col">
+        <div class="comments">
+          <% for (let comment of comments) { %>
+            <div id="card-comment">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <%= comment.nome %>
+                  </h4>
+                  <p class="card-text">
+                    <%= comment.comentario %>
+                  </p>
+                  <div class="d-flex justify-content-between">
+                    <p class="card-text"><%= comment.data_entrada %></p>
+                    <p class="card-text"><%= comment.horario %></p>
+                  </div>
+                  </div>
+              </div>
+            </div>
+            <% } %>
+        </div>
+      </div>
+
+    </div>
   </div>
   <script src="js/comments.js"></script>
 </body>

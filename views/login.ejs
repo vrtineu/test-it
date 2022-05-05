@@ -11,21 +11,39 @@
 </head>
 
 <body>
-  <h1 class="title">Login</h1>
-  <div class="form-login">
-    <form id="login">
-      <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email">
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="/images/login.svg" alt="login" class="login-image">
+        </div>
+
+        <div class="col-md-6 contents pt-5">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <h1 class="title text-center">Login</h1>
+              <div class="form-login">
+                <form id="login">
+                  <div class="mb-3">
+                    <div class="form-floating mb-3">
+                      <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                      <label for="email">Email address</label>
+                    </div>
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="name" placeholder="Password">
+                      <label for="name">Name</label>
+                    </div>
+                  </div>
+                  <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-login">Log In</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name">
-      </div>
-      <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-login">Submit</button>
-      </div>
-    </form>
+    </div>
   </div>
 
   <script src="js/login.js"></script>

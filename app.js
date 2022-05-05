@@ -3,8 +3,9 @@ import express from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
-import indexRouter from "./routes/index.js";
+
 import { AppError } from "./errors/AppError.js";
+import indexRouter from "./routes/index.js";
 
 const app = express();
 
@@ -23,18 +24,16 @@ app.use(function (req, res, next) {
 	next(createError(404));
 });
 
-app.use((err, req, res, next) => {
+app.use((err, _req, res, _next) => {
 	if (err instanceof AppError) {
-
+		return res.status(err.statusCode).json({
+			message: err.message,
+		});
 	}
-})
 
-// app.use(function (err, req, res, next) {
-// 	res.locals.message = err.message;
-// 	res.locals.error = req.app.get("env") === "development" ? err : {};
-
-// 	res.status(err.status || 500);
-// 	res.render("error");
-// });
+	return res.status(500).json({
+		message: `Internal server error: ${err.message}`,
+	});
+});
 
 export default app;
