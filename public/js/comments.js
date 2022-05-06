@@ -1,4 +1,5 @@
 const formComments = document.getElementById('comments');
+const scrollToTopBtn = document.getElementById('scroll-top');
 
 formComments.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -23,3 +24,19 @@ formComments.addEventListener('submit', async (e) => {
 
   window.location.href = '/comments';
 });
+
+window.onscroll = () => pageScroll();
+
+function pageScroll() {
+  const userScroll =
+    document.body.scrollTop > 20 || document.documentElement.scrollTop > 20
+
+  userScroll
+    ? scrollToTopBtn.style.display = "block"
+    : scrollToTopBtn.style.display = "none"
+}
+
+function scrollToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}

@@ -1,60 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/comments.css" />
+
   <title>
     <%= title %>
   </title>
-  <link rel='stylesheet' href='/stylesheets/comments.css' />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
-  <h1 class="title">Comments</h1>
-
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="form-comments">
-          <form id="comments">
-            <div class="mb-3">
-              <label for="comment" class="form-label">Add a new comment</label>
-              <textarea class="form-control" id="comment" rows="3"></textarea>
+  <section>
+    <div class="container">
+      <div class="row">
+        <h1 class="title text-center">
+          Comments
+        </h1>
+        <div class="col-sm-5 col-md-6 col-12 pb-4">
+          <div class="mt-4 text-justify float-left">
+            <div class="comments">
+              <% for (const comment of comments) { %>
+                <div id="card-comment">
+                  <div class="card mb-3">
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        @<%= comment.nome %>
+                      </h4>
+                      <p class="card-text text-justify p-2 mb-2">
+                        <%= comment.comentario %>
+                      </p>
+                      <div class="d-flex justify-content-start">
+                        <p class="card-text">
+                          <span class="text-muted">
+                            <%= comment.data_entrada %>
+                          </span>
+                          <span class="text-muted">
+                            <%= comment.horario %>
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <% } %>
             </div>
-            <div class="d-grid gap-2">
-              <button type="submit" class="btn btn-comments">Submit</button>
-            </div>
-          </form>
+          </div>
         </div>
-      </div>
 
-      <div class="col">
-        <div class="comments">
-          <% for (let comment of comments) { %>
-            <div id="card-comment">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <%= comment.nome %>
-                  </h4>
-                  <p class="card-text">
-                    <%= comment.comentario %>
-                  </p>
-                  <div class="d-flex justify-content-between">
-                    <p class="card-text"><%= comment.data_entrada %></p>
-                    <p class="card-text"><%= comment.horario %></p>
-                  </div>
-                  </div>
+        <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+          <div class="form-comments">
+            <p class="text-center">
+              Would you like to leave your comment?
+            </p>
+            <form id="comments">
+              <textarea class="form-control" placeholder="Type your comment here..." id="comment" rows="7"
+                maxlength="250"></textarea>
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-comments">
+                  Post comment
+                </button>
               </div>
-            </div>
-            <% } %>
+            </form>
+          </div>
         </div>
       </div>
-
     </div>
-  </div>
+    </div>
+  </section>
+
+  <button onclick="scrollToTop()" id="scroll-top" title="Go to top">
+    Return to top
+  </button>
+
   <script src="js/comments.js"></script>
 </body>
 

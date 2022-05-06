@@ -1,4 +1,5 @@
 import axios from "axios"
+
 import { AppError } from "../errors/AppError.js";
 
 export async function userLoginService(email, name) {
@@ -6,9 +7,11 @@ export async function userLoginService(email, name) {
     throw new AppError("Missing parameters");
   }
 
+  const url = `http://${process.env.EXTERNAL_IP}/cadastro`;
+
   const options = {
     method: 'POST',
-    url: `${process.env.API_URL}/cadastro`,
+    url,
     data: {
       email,
       nome: name

@@ -1,10 +1,13 @@
 import axios from "axios";
+
 import { AppError } from "../errors/AppError.js";
 
 export async function findAllCommentsService() {
+  const url = `http://${process.env.EXTERNAL_IP}/busca_comentarios`;
+
   const options = {
     method: 'POST',
-    url: `${process.env.API_URL}/busca_comentarios`
+    url,
   };
 
   try {

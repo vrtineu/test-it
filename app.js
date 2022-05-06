@@ -1,5 +1,5 @@
-import createError from "http-errors";
 import express from "express";
+import 'express-async-errors'
 import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
@@ -19,10 +19,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(path.resolve(), "public")));
 
 app.use("/", indexRouter);
-
-app.use(function (req, res, next) {
-	next(createError(404));
-});
 
 app.use((err, _req, res, _next) => {
 	if (err instanceof AppError) {

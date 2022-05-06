@@ -1,29 +1,45 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: linear-gradient(to right, #be83d8, #db3505);
+  font-family: 'Poppins', sans-serif;
+  background: #6c63ff;
 }
 
 .title {
-  font-size: 24px;
+  font-size: 3rem;
   font-weight: bold;
   color: #fff;
-  text-align: center;
-  margin-bottom: 20px;
+  text-shadow: 5px 5px 10px #000;
 }
 
-.form-comments {
-  width: 75%;
-  height: auto;
-  padding: 20px;
-  border: 1px solid #ccc;
+.form-comments p {
+  font-size: 1.2rem;
+  color: #fff;
+  text-shadow: 5px 5px 10px #000;
+}
+
+textarea {
+  resize: none;
 }
 
 .form-comments .btn-comments {
-  background-color: #ccc;
+  margin-top: 10px;
+  background-color: #f8fafb;
 }
 
-#card-comment {
-  width: 75%;
-  height: auto;
+#scroll-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  border: none;
+  outline: none;
+  background-color: #f8fafb;
+  color: #6c63ff;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#scroll-top:hover {
+  background-color: #555;
+  color: #fff;
 }
