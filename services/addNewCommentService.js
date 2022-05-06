@@ -1,10 +1,10 @@
 import axios from "axios";
 
-import { AppError } from "../errors/AppError.js";
+import { AppError } from '../errors/AppError.js'
 
 export async function addNewCommentService(id, comment) {
   if (!id || !comment || !comment.length) {
-    throw new Error("Missing parameters");
+    throw new AppError("Missing parameters");
   }
 
   const url = `http://${process.env.EXTERNAL_IP}/add_comentario`;
@@ -23,6 +23,6 @@ export async function addNewCommentService(id, comment) {
 
     return { success: true };
   } catch (error) {
-    throw new AppError(error);
+    throw new Error(error);
   }
 }

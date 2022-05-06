@@ -1,7 +1,5 @@
 import axios from "axios";
 
-import { AppError } from "../errors/AppError.js";
-
 export async function findAllCommentsService() {
   const url = `http://${process.env.EXTERNAL_IP}/busca_comentarios`;
 
@@ -15,6 +13,6 @@ export async function findAllCommentsService() {
 
     return response.data;
   } catch (error) {
-    throw new AppError(error);
+    throw new Error(error);
   }
 }

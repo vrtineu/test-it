@@ -23,6 +23,6 @@ export async function userLoginService(email, name) {
 
     return response.data;
   } catch (error) {
-    throw new AppError(error);
+    throw new Error(error);
   }
 }
